@@ -1,0 +1,945 @@
+/* ==========================================================================
+   CHAPTER SPECIFIC STYLES
+   Chapters 01 through 07 — M. Buvaneswari 50th Birthday Website
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CHAPTER 01: CINEMATIC WELCOME
+   -------------------------------------------------------------------------- */
+#chapter-welcome {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--header-height) + var(--space-xl)) var(--space-lg) var(--space-2xl);
+  position: relative;
+  background: radial-gradient(circle at 50% 35%, rgba(36, 87, 167, 0.35) 0%, rgba(13, 40, 84, 0.25) 45%, var(--color-midnight) 85%);
+}
+
+.welcome-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.welcome-portrait-wrapper {
+  margin: 0 auto var(--space-xl);
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.welcome-portrait-glow {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 203, 250, 0.45) 0%, rgba(36, 87, 167, 0.2) 60%, transparent 80%);
+  filter: blur(12px);
+  animation: pulseGlow 4s infinite alternate ease-in-out;
+}
+
+.welcome-portrait-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #F3E5BE 0%, #E6D3A2 40%, #174EA6 80%, #8BCBFA 100%);
+  box-shadow: 0 12px 35px rgba(5, 15, 32, 0.8), var(--shadow-glow-gold);
+}
+
+.welcome-portrait-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--color-midnight);
+}
+
+.welcome-tagline {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--color-sky-blue);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.welcome-tagline::before, .welcome-tagline::after {
+  content: '✦';
+  color: var(--color-champagne);
+  font-size: 0.85rem;
+}
+
+.welcome-title {
+  font-size: clamp(2.5rem, 2rem + 3.5vw, 4.8rem);
+  font-family: var(--font-serif);
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F7FAFF 40%, #E6D3A2 75%, #8BCBFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(23, 78, 166, 0.4));
+}
+
+.welcome-honor {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--color-champagne);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.03em;
+}
+
+.welcome-quote {
+  font-size: var(--fs-md);
+  font-style: italic;
+  color: var(--color-silver-mist);
+  max-width: 680px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.6;
+}
+
+.welcome-meta-card {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: 0.75rem 1.75rem;
+  background: rgba(11, 30, 61, 0.75);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-2xl);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-sm);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  color: var(--color-pearl-white);
+}
+
+.meta-item .meta-icon {
+  color: var(--color-champagne);
+}
+
+.welcome-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 02: HER LIFE JOURNEY
+   -------------------------------------------------------------------------- */
+#chapter-journey {
+  position: relative;
+  background: radial-gradient(circle at 20% 40%, rgba(23, 78, 166, 0.22) 0%, transparent 60%);
+}
+
+.journey-chapters-nav {
+  display: flex;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  padding: var(--space-xs) var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-xl);
+  scrollbar-width: thin;
+}
+
+.journey-chip {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(11, 30, 61, 0.6);
+  border: 1px solid var(--border-subtle);
+  color: var(--color-silver-mist);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.journey-chip:hover, .journey-chip.active {
+  background: var(--color-ramar-blue);
+  color: #FFFFFF;
+  border-color: var(--color-champagne);
+  box-shadow: 0 4px 15px rgba(36, 87, 167, 0.4);
+}
+
+.journey-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.journey-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-glass);
+  box-shadow: 0 16px 36px rgba(5, 15, 32, 0.65), var(--shadow-glow);
+}
+
+.journey-card-media {
+  position: relative;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  background: #050F1E;
+}
+
+.journey-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.journey-card:hover .journey-card-img {
+  transform: scale(1.06);
+}
+
+.journey-card-badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  padding: 0.3rem 0.85rem;
+  background: rgba(7, 22, 46, 0.85);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-champagne);
+  backdrop-filter: var(--glass-blur);
+}
+
+.journey-card-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.journey-card-year {
+  font-size: var(--fs-xs);
+  color: var(--color-sky-blue);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2xs);
+}
+
+.journey-card-title {
+  font-size: var(--fs-md);
+  color: var(--color-pearl-white);
+  margin-bottom: var(--space-xs);
+}
+
+.journey-card-desc {
+  font-size: var(--fs-sm);
+  color: var(--color-silver-mist);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.journey-card-footer {
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.journey-card-status {
+  font-size: 0.725rem;
+  color: var(--color-sky-blue);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-clarify {
+  color: #F8B46C !important;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 03: 50 REASONS WHY WE LOVE YOU
+   -------------------------------------------------------------------------- */
+#chapter-reasons {
+  background: radial-gradient(circle at 80% 20%, rgba(36, 87, 167, 0.25) 0%, transparent 65%);
+}
+
+.reasons-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reasons-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+}
+
+.reasons-counter-badge {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  color: var(--color-champagne);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.reasons-btn-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Single Featured Reason Card */
+.reason-card-stage {
+  perspective: 1200px;
+  margin-bottom: var(--space-2xl);
+}
+
+.reason-card-single {
+  background: linear-gradient(145deg, rgba(23, 78, 166, 0.35) 0%, rgba(7, 22, 46, 0.95) 100%);
+  border: 2px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(5, 15, 32, 0.7), var(--shadow-glow-gold);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-slow), opacity var(--transition-base);
+}
+
+.reason-number-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14rem;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  color: rgba(139, 203, 250, 0.04);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.reason-category-tag {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(36, 87, 167, 0.4);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-sky-blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.reason-card-title {
+  font-size: var(--fs-xl);
+  color: var(--color-champagne);
+  margin-bottom: var(--space-md);
+  font-family: var(--font-serif);
+}
+
+.reason-card-text {
+  font-size: var(--fs-md);
+  color: var(--color-pearl-white);
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto var(--space-lg);
+  font-family: var(--font-display);
+}
+
+.reason-contributor-tag {
+  font-size: var(--fs-sm);
+  color: var(--color-silver-mist);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Reasons Grid (when "Reveal All" is clicked) */
+.reasons-full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.reason-grid-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: all var(--transition-base);
+}
+
+.reason-grid-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 04: KEY MEMORIES & PHOTO GALLERY
+   -------------------------------------------------------------------------- */
+#chapter-memories {
+  background: radial-gradient(circle at 10% 70%, rgba(36, 87, 167, 0.2) 0%, transparent 50%);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: #050F1E;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  border-color: var(--border-glass);
+  box-shadow: 0 12px 30px rgba(5, 15, 32, 0.7), var(--shadow-glow-sky);
+  z-index: 2;
+}
+
+.gallery-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover .gallery-item-img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 22, 46, 0.95) 0%, rgba(7, 22, 46, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-md);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay-title {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-pearl-white);
+}
+
+.gallery-overlay-year {
+  font-size: 0.75rem;
+  color: var(--color-sky-blue);
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 05: FAMILY VIDEO WISHES
+   -------------------------------------------------------------------------- */
+#chapter-wishes {
+  background: radial-gradient(circle at 50% 50%, rgba(23, 78, 166, 0.25) 0%, transparent 70%);
+}
+
+.wishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: var(--space-xl);
+}
+
+.wish-video-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+}
+
+.wish-video-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.wish-video-player-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #040D1B;
+  overflow: hidden;
+}
+
+.wish-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wish-poster-wrap {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast);
+}
+
+.wish-poster-wrap.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wish-play-btn-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(23, 78, 166, 0.85);
+  border: 2px solid var(--color-champagne);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-champagne);
+  font-size: 1.5rem;
+  box-shadow: 0 0 25px rgba(230, 211, 162, 0.5);
+  transition: all var(--transition-fast);
+}
+
+.wish-poster-wrap:hover .wish-play-btn-circle {
+  transform: scale(1.12);
+  background: var(--color-ramar-blue);
+  color: #FFFFFF;
+}
+
+.wish-duration-badge {
+  position: absolute;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  background: rgba(7, 22, 46, 0.85);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.75rem;
+  color: var(--color-silver-mist);
+  font-weight: 600;
+}
+
+.wish-card-info {
+  padding: var(--space-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wish-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+}
+
+.wish-speaker-name {
+  font-size: var(--fs-md);
+  color: var(--color-pearl-white);
+  font-weight: 700;
+}
+
+.wish-relationship-tag {
+  font-size: 0.75rem;
+  color: var(--color-champagne);
+  border: 1px solid var(--border-gold);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.wish-quote-text {
+  font-size: var(--fs-sm);
+  font-style: italic;
+  color: var(--color-silver-mist);
+  margin-top: var(--space-sm);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 06: AGE 1 TO 50 TRANSITION
+   -------------------------------------------------------------------------- */
+#chapter-age-transition {
+  background: radial-gradient(circle at 50% 50%, rgba(36, 87, 167, 0.3) 0%, #061329 70%, var(--color-midnight) 100%);
+  text-align: center;
+}
+
+.age-stage-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.age-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  height: 480px;
+  margin: 0 auto var(--space-xl);
+  border-radius: var(--radius-xl);
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(230, 211, 162, 0.6) 0%, rgba(36, 87, 167, 0.7) 50%, rgba(139, 203, 250, 0.6) 100%);
+  box-shadow: 0 20px 60px rgba(4, 12, 26, 0.9), var(--shadow-glow);
+}
+
+.age-photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--radius-xl) - 6px);
+  overflow: hidden;
+  background: #040D1B;
+  position: relative;
+}
+
+.age-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.5s ease-in-out, transform 0.6s ease-out;
+}
+
+.age-badge-overlay {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  background: rgba(7, 22, 46, 0.88);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 1.2rem;
+  backdrop-filter: var(--glass-blur);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.age-number-text {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  color: var(--color-champagne);
+  font-weight: 700;
+}
+
+.age-stage-title {
+  font-size: var(--fs-xs);
+  color: var(--color-sky-blue);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.age-caption-box {
+  margin-bottom: var(--space-lg);
+  min-height: 60px;
+}
+
+.age-caption-title {
+  font-size: var(--fs-lg);
+  color: var(--color-pearl-white);
+  font-family: var(--font-serif);
+}
+
+.age-caption-desc {
+  font-size: var(--fs-sm);
+  color: var(--color-silver-mist);
+}
+
+.age-controller-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
+
+.age-scrubber-wrap {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-md) auto;
+}
+
+.age-scrubber-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: rgba(200, 214, 232, 0.2);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.age-scrubber-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-champagne);
+  box-shadow: 0 0 10px var(--color-champagne);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER 07: FINAL WISHES AND 50 GIFTS
+   -------------------------------------------------------------------------- */
+#chapter-finale {
+  background: radial-gradient(circle at 50% 30%, rgba(23, 78, 166, 0.38) 0%, rgba(7, 22, 46, 0.95) 75%, #030B17 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-reveal-stage {
+  max-width: 780px;
+  margin: 0 auto var(--space-3xl);
+  perspective: 1000px;
+}
+
+/* 3D Blue Gift Box with Silver Ribbon */
+.gift-box-3d-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto var(--space-xl);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform var(--transition-slow);
+}
+
+.gift-box-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #174EA6 0%, #2457A7 50%, #0d2e61 100%);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-gold);
+  box-shadow: 0 20px 45px rgba(4, 12, 26, 0.8), var(--shadow-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Silver Ribbon on Box */
+.ribbon-vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 14px);
+  width: 28px;
+  background: linear-gradient(90deg, #C8D6E8 0%, #FFFFFF 50%, #8DA6C4 100%);
+  box-shadow: 0 0 10px rgba(200, 214, 232, 0.6);
+}
+
+.ribbon-horizontal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(50% - 14px);
+  height: 28px;
+  background: linear-gradient(180deg, #C8D6E8 0%, #FFFFFF 50%, #8DA6C4 100%);
+  box-shadow: 0 0 10px rgba(200, 214, 232, 0.6);
+}
+
+/* Bow on top */
+.gift-box-bow {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: var(--color-champagne);
+  filter: drop-shadow(0 4px 10px rgba(230, 211, 162, 0.6));
+  z-index: 10;
+}
+
+.gift-box-lid {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  height: 48px;
+  background: linear-gradient(135deg, #2457A7 0%, #174EA6 100%);
+  border: 2px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+}
+
+.gift-box-3d-wrap.box-opened .gift-box-lid {
+  transform: rotateX(-120deg) translateY(-20px);
+}
+
+/* Revealed Gift Card Display */
+.revealed-gift-card {
+  background: linear-gradient(145deg, rgba(23, 78, 166, 0.4) 0%, rgba(7, 22, 46, 0.95) 100%);
+  border: 2px solid var(--color-champagne);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: 0 16px 45px rgba(4, 12, 26, 0.8), var(--shadow-glow-gold);
+  margin-top: var(--space-lg);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-counter-tag {
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  color: var(--color-sky-blue);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.gift-title-text {
+  font-size: var(--fs-xl);
+  color: var(--color-champagne);
+  font-family: var(--font-serif);
+  margin-bottom: var(--space-xs);
+}
+
+.gift-giver-text {
+  font-size: var(--fs-sm);
+  color: var(--color-silver-mist);
+  margin-bottom: var(--space-md);
+}
+
+.gift-message-text {
+  font-size: var(--fs-md);
+  color: var(--color-pearl-white);
+  max-width: 600px;
+  line-height: 1.6;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+.gift-operator-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-xl);
+}
+
+/* Grand Finale Birthday Screen */
+.grand-celebration-card {
+  max-width: 900px;
+  margin: var(--space-3xl) auto 0;
+  background: linear-gradient(145deg, rgba(36, 87, 167, 0.3) 0%, rgba(7, 22, 46, 0.9) 100%);
+  border: 2px solid var(--color-champagne);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3xl) var(--space-xl);
+  box-shadow: 0 25px 60px rgba(3, 10, 22, 0.85), var(--shadow-glow-gold);
+  position: relative;
+}
+
+.grand-birthday-headline {
+  font-size: clamp(2.4rem, 2rem + 3vw, 4.5rem);
+  font-family: var(--font-serif);
+  color: #FFFFFF;
+  margin-bottom: var(--space-md);
+  background: linear-gradient(135deg, #FFFFFF 0%, #E6D3A2 50%, #8BCBFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(230, 211, 162, 0.4));
+}
+
+.grand-supporting-message {
+  font-size: var(--fs-lg);
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-silver-mist);
+  max-width: 740px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.7;
+}
+
+.grand-family-photo-wrapper {
+  max-width: 680px;
+  margin: 0 auto var(--space-2xl);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 2px solid var(--border-gold);
+  box-shadow: 0 16px 40px rgba(5, 15, 32, 0.8), var(--shadow-glow);
+}
+
+.grand-family-photo {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+}
